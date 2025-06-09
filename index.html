@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebGIS Pendidikan Kabupaten Sukabumi</title>
+    <link rel="stylesheet" href="css/styles.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+    <!-- Plugin Tambahan -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easybutton.css">
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox.js/plugins/leafletfullscreen/v1.0.1/leaflet.fullscreen.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css">
+    <link rel="stylesheet" href="https://balladaniel.github.io/leaflet-dataclassification/leafletdataclassification.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xod5aW5lD+rGj0p9m21zZ6y02m2a5m2b3k4c5a5b5f5i5j5l5m5n5o5p5q5r5s5t5u5v5w5x5y5z" crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.fullscreen@1.1.0/Control.FullScreen.css" />
+
+    <!-- JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" 
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script>
+    <script src="https://api.mapbox.com/mapbox.js/plugins/leafletfullscreen/v1.0.1/Leaflet.fullscreen.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+    <script src="https://balladaniel.github.io/leaflet-dataclassification/leafletdataclassification.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+</head>
+
+</body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-left">
+    <img src="asset/Kabupaten-Sukabumi-Resized-100px.png" alt="Logo" class="Logo" />
+    </div>
+    <div class="brand">GISEduMi</div>
+    </div>
+    <div class="navbar-right">
+      <button class="sidebar-toggle" aria-label="Toggle Sidebar">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      </button>
+    </div>
+  </div>
+     </nav>
+
+ <!-- Sidebar -->
+<aside class="sidebar closed" id="sidebar">
+  <!-- Header -->
+  <div class="sidebar-header">
+    <h3>Menu</h3>
+  </div>
+
+  <!-- Tombol Close -->
+  <button class="close-btn" aria-label="Close Sidebar">&times;</button>
+
+  <!-- Kotak Pencarian -->
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Cari...">
+  </div>
+
+  <!-- Navigasi -->
+ <ul class="nav-links">
+  <li><a href="#hero"><i class="fas fa-home"></i> Beranda</a></li>
+  <li><a href="#map"><i class="fas fa-map"></i> Peta</a></li>
+  <li><a href="#data"><i class="fas fa-chart-bar"></i> Data</a></li>
+  <li><a href="#creator"><i class="fas fa-user"></i> Pembuat</a></li>
+  <li><a href="#footer"><i class="fas fa-envelope"></i> Kontak</a></li>
+</ul>
+
+  <!-- Footer -->
+  <div class="sidebar-footer">
+    <p>&copy; 2025 GISEduMI</p>
+  </div>
+</aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      
+      <!-- Hero Section -->
+      <section class="hero" id="hero">
+        <div class="slides">
+          <div class="slide active">
+            <img src="asset/sukabumi-indonesia-january-14th-2024-kujang-monument-sukabumi-city-square-or-tugu-kujang-alun-alun-kota-sukabumi-with-sunset-sky-cloud-on-twilight-free-photo.jpg" alt="Slide 1" />
+            <div class="caption">
+              <h1>GISEduMI</h1>
+              <p>WebGIS Fasilitas Pendidikan Sukabumi</p>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="asset/DJI_0478.jpg" alt="Slide 2" />
+            <div class="caption">
+              <h1>Data Interaktif</h1>
+              <p>Eksplorasi Sekolah dan Fasilitasnya</p>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="asset/WhatsApp-Image-2023-07-17-at-17.00.01.jpg" alt="Slide 3" />
+            <div class="caption">
+              <h1>Informasi Sukabumi</h1>
+              <p>Peta Sebaran Pendidikan Terkini</p>
+            </div>
+          </div>
+        </div>
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+      </section>
+    </main>
+  </div>
+
+  <!-- Map Section -->
+  <section id="map-section">
+    <h2>Peta Sebaran Pendidikan</h2>
+    <div id="map"></div>
+  </section>
+
+
+ <!-- Data Section -->
+  <h2 class="judul-statistik">Data Statistik Pendidikan</h2>
+<section id="data" class="data-section">
+
+  <!-- Kartu -->
+  <div class="stats-container">
+    <div class="stat-card" onclick="openModal('sd')">
+      <img src="asset/rrxjb898em0umns.jpeg" class="stat-icon" alt="Icon SD">
+      <h3>150</h3>
+      <p>SD Negeri</p>
+    </div>
+    <div class="stat-card" onclick="openModal('smp')">
+      <img src="asset/seragam_siswa.jpg" class="stat-icon" alt="Icon SMP">
+      <h3>96</h3>
+      <p>SMP Negeri</p>
+    </div>
+    <div class="stat-card" onclick="openModal('sma')">
+      <img src="asset/maxresdefault.jpg" class="stat-icon" alt="Icon SMA">
+      <h3>38</h3>
+      <p>SMA Negeri</p>
+    </div>
+  </div>
+</section>
+
+<!-- Modal SD -->
+<div id="modal-sd" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal('sd')">&times;</span>
+    <h3>Statistik SD Negeri Kabupaten Sukabumi</h3>
+    <canvas id="sdChart" width="400" height="200"></canvas>
+    <table class="data-table">
+      <thead>
+        <tr><th>Kategori</th><th>Data</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Jumlah SD Negeri</td><td>150 sekolah</td></tr>
+        <tr><td>Guru Tetap</td><td>±4.500 orang</td></tr>
+        <tr><td>Siswa Aktif</td><td>±60.000 siswa</td></tr>
+        <tr><td>Tingkat Kelulusan</td><td>> 95%</td></tr>
+        <tr><td>Akses Internet</td><td>75%</td></tr>
+        <tr><td>Laboratorium Komputer</td><td>80%</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal SMP -->
+<div id="modal-smp" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal('smp')">&times;</span>
+    <h3>Statistik SMP Negeri Kabupaten Sukabumi</h3>
+    <canvas id="smpChart" width="400" height="200"></canvas>
+    <table class="data-table">
+      <thead>
+        <tr><th>Kategori</th><th>Data</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Jumlah SMP Negeri</td><td>96 sekolah</td></tr>
+        <tr><td>Guru Tetap</td><td>±2.800 orang</td></tr>
+        <tr><td>Siswa Aktif</td><td>±35.000 siswa</td></tr>
+        <tr><td>Tingkat Kelulusan</td><td>> 97%</td></tr>
+        <tr><td>Akses Internet</td><td>80%</td></tr>
+        <tr><td>Laboratorium Komputer</td><td>85%</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal SMA -->
+<div id="modal-sma" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal('sma')">&times;</span>
+    <h3>Statistik SMA Negeri Kabupaten Sukabumi</h3>
+    <canvas id="smaChart" width="400" height="200"></canvas>
+    <table class="data-table">
+      <thead>
+        <tr><th>Kategori</th><th>Data</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Jumlah SMA Negeri</td><td>38 sekolah</td></tr>
+        <tr><td>Guru Tetap</td><td>±1.100 orang</td></tr>
+        <tr><td>Siswa Aktif</td><td>±28.000 siswa</td></tr>
+        <tr><td>Tingkat Kelulusan</td><td>> 98%</td></tr>
+        <tr><td>Akses Internet</td><td>85%</td></tr>
+        <tr><td>Laboratorium Komputer</td><td>92%</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Author Section -->
+<h2 class="judul-Penulis">Tentang Pembuat</h2>
+<section id="creator" class="author-section">
+  <div class="author-content">
+    <img src="asset/WhatsApp Image 2025-06-09 at 11.06.36_fb7510ca.jpg" alt="Foto Amara Indriani Tambunan" class="author-photo-minimal">
+
+    <h3 class="author-name-minimal">Amara Indriani Tambunan</h3>
+    <p class="author-bio-minimal">
+      Seorang mahasiswa Program Studi Sains Informasi Geografi di Universitas Pendidikan Indonesia yang tengah mendalami bidang Sistem Informasi Geografis (SIG), serta memiliki minat khusus pada visualisasi data dan informasi pendidikan. Saat ini, berperan sebagai pengembang web GISEduMi dalam rangka memenuhi tugas akhir Mata Kuliah WebGIS.
+    </p>
+
+    <div class="author-social-links-minimal">
+      <a href="https://Instagram.com/amarandrn" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://x.com/rrmwlsy" target="_blank" aria-label="Twitter">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="mailto:amaraindriani471@upi.edu" aria-label="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!--Footer Section-->
+<footer id="footer" class="footer-section">
+  <div class="footer-container">
+    <div class="footer-content">
+      <div class="footer-column about-us">
+        <h3>Tentang Kami</h3>
+        <p>Platform WebGIS ini didedikasikan untuk menyediakan informasi terkini mengenai data pendidikan dan statistik di wilayah Kabupaten Sukabumi.</p>
+      </div>
+
+      <div class="footer-column quick-links">
+        <h3>Tautan Cepat</h3>
+        <ul>
+          <li><a href="#hero"><i class="fas fa-home"></i> Beranda</a></li>
+          <li><a href="#map"><i class="fas fa-map"></i> Peta</a></li>
+          <li><a href="#data"><i class="fas fa-chart-bar"></i> Data</a></li>
+          <li><a href="#creator"><i class="fas fa-user"></i> Pembuat</a></li>
+          <li><a href="#footer"><i class="fas fa-envelope"></i> Kontak</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column contact-info">
+        <h3>Hubungi Kami</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Bandung, Jawa Barat, Indonesia</p>
+        <p><i class="fas fa-phone"></i> +6285722117147</p>
+        <p><i class="fas fa-envelope"></i> info@GISEduMI</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 GISEduMi.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="js/script.js"></script>
+</body>
+</html>
